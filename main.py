@@ -5,7 +5,7 @@ import os
 
 from dotenv import load_dotenv
 
-load_dotenv(".env.local")
+load_dotenv(".env")
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 COUPON_ID = input("Enter the coupon ID: ")
