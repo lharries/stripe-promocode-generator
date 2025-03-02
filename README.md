@@ -4,6 +4,8 @@ A Python tool to generate multiple Stripe promotion codes in bulk.
 
 It's designed to be run as a CLI tool, but can also be used as a Python package.
 
+It's hosted on [pypi here](https://pypi.org/project/stripe-bulk-promocode-generator/)
+
 ## Usage
 
 You can run the tool in 2 ways:
