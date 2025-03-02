@@ -11,33 +11,18 @@ You can run the tool in 3 ways:
 First [install uvx](https://docs.astral.sh/uv/getting-started/installation/), then run
 
 ```bash
-uvx stripe-bulk-promocodes
+uvx stripe-bulk-promocode-generator
 ```
 
-2. Using pip then the command line:
+2. Clone this repo then run:
 
 ```bash
-pip install stripe-bulk-promocode-generator
-```
-
-```bash
-stripe-bulk-promocode-generator
-```
-
-3. Using pip then within a Python script:
-
-```bash
-pip install stripe-bulk-promocode-generator
-```
-
-```python
-from stripe_bulk_promocode_generator.main import create_promotion_codes
-
-create_promotion_codes(
-    coupon_id="your_coupon_id",
-    num_coupons=10,
-    prefix="PROMO"  # optional
-)
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+# Edit the .env file with your Stripe secret key
+python3 stripe_bulk_promocode_generator/main.py
 ```
 
 ## Configuration
