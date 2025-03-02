@@ -2,6 +2,8 @@
 
 A Python tool to generate multiple Stripe promotion codes in bulk.
 
+It's designed to be run as a CLI tool, but can also be used as a Python package.
+
 ## Usage
 
 You can run the tool in 3 ways:
