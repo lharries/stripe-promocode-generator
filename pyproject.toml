@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "stripe-bulk-promocode-generator"
+version = "0.2.0"
+authors = [
+    { name = "Luke Harries", email = "lharries@users.noreply.github.com" }
+]
+description = "A tool to generate multiple Stripe promotion codes in bulk"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "stripe",
+    "python-dotenv",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+stripe-bulk-promocode-generator = "stripe_bulk_promocode_generator.main:main" 

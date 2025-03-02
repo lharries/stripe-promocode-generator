@@ -1,10 +1,65 @@
-# Stripe Promotion Code Generator
+# Stripe Bulk Promocode Generator
 
-This script generates a large number of Stripe promotion codes with a specific prefix and expiration date. It uses the Stripe API to create the promotion codes. It's useful for partnerships where you can give a partner a unique coupon code for each customer.
+A Python tool to generate multiple Stripe promotion codes in bulk.
 
-How to use this:
+## Usage
 
-1. Install the dependencies with `pip install -r requirements.txt`.
-2. Copy the `.env.example` file to `.env` and generate a Stripe API key and put it in the `.env.local` file.
-3. Create a coupon in Stripe for the desired product (e.g. a $100 off coupon).
-4. Run the script with `python main.py` and enter the desired number of coupons to generate and the coupon ID.
+You can run the tool in 3 ways:
+
+1. Using uvx:
+
+First [install uvx](https://docs.astral.sh/uv/getting-started/installation/), then run
+
+```bash
+uvx stripe-bulk-promocodes
+```
+
+2. Using pip then the command line:
+
+```bash
+pip install stripe-bulk-promocode-generator
+```
+
+```bash
+stripe-bulk-promocode-generator
+```
+
+3. Using pip then within a Python script:
+
+```bash
+pip install stripe-bulk-promocode-generator
+```
+
+```python
+from stripe_bulk_promocode_generator.main import create_promotion_codes
+
+create_promotion_codes(
+    coupon_id="your_coupon_id",
+    num_coupons=10,
+    prefix="PROMO"  # optional
+)
+```
+
+## Configuration
+
+The tool requires a Stripe secret key. You can provide it in two ways:
+
+1. Enter it when prompted
+2. Set it in a `.env` file:
+
+```
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
+
+## Features
+
+- Generate multiple promotion codes at once
+- Optional prefix for promotion codes
+- Automatic expiration after 1 year
+- First-time transaction restriction
+- Single-use codes (max 1 redemption)
+- Saves codes to a text file
+
+## License
+
+MIT License

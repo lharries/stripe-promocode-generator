@@ -1,18 +1,11 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = [
-#     "stripe",
-#     "python-dotenv",
-# ]
-# ///
-
 import time
 import stripe
 import os
+from typing import Optional
 
 
 def create_promotion_codes(
-    coupon_id: str, num_coupons: int, prefix: str | None = None
+    coupon_id: str, num_coupons: int, prefix: Optional[str] = None
 ) -> None:
     """
     Create multiple Stripe promotion codes and save them to a file.
@@ -28,7 +21,7 @@ def create_promotion_codes(
 
     for _ in range(num_coupons):
         random_code = os.urandom(4).hex()
-        code = f"{prefix}{'-' if prefix else ''}{random_code}"
+        code = f"{prefix + '' if prefix else ''}{'-' if prefix else ''}{random_code}"
         try:
             promotion_code = stripe.PromotionCode.create(
                 coupon=coupon_id,
@@ -46,7 +39,8 @@ def create_promotion_codes(
             print(f"Error creating promotion code: {e}")
 
 
-def main():
+def main() -> None:
+    """Main entry point for the command-line interface."""
     # Get Stripe API key from input first
     api_key = input(
         "Enter your Stripe secret key (press Enter to use .env file): "
@@ -56,7 +50,7 @@ def main():
     if not api_key:
         from dotenv import load_dotenv
 
-        load_dotenv(".env")
+        load_dotenv()
         api_key = os.getenv("STRIPE_SECRET_KEY")
         if not api_key:
             raise ValueError("STRIPE_SECRET_KEY not found in input or .env file")

@@ -1,3 +1,5 @@
 venv/
 .env
 *.txt
+__pycache__/
+dist/
