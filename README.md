@@ -6,7 +6,7 @@ It's designed to be run as a CLI tool, but can also be used as a Python package.
 
 ## Usage
 
-You can run the tool in 3 ways:
+You can run the tool in 2 ways:
 
 1. Using uvx:
 
